@@ -27,6 +27,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+    authenticate_with_http_basic do |email, password|
+      user = User.find_by(email: email)
+      if user && user.password == password
+        render json: { token: user.auth_token }
+      else
+        render json: { error: 'Incorrect credentials' }, status: 401
+      end
+    end
+  end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update

@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   before_action :set_tweet, only: [:show, :update, :destroy]
 
   # GET /tweets
@@ -29,15 +30,15 @@ class TweetsController < ApplicationController
 
   # PATCH/PUT /tweets/1
   # PATCH/PUT /tweets/1.json
-  def update
-    @tweet = Tweet.find(params[:id])
+  #def update
+  #  @tweet = Tweet.find(params[:id])
 
-    if @tweet.update(tweet_params)
-      head :no_content
-    else
-      render json: @tweet.errors, status: :unprocessable_entity
-    end
-  end
+   # if @tweet.update(tweet_params)
+    #  head :no_content
+    #else
+     # render json: @tweet.errors, status: :unprocessable_entity
+    #end
+  #end
 
   # DELETE /tweets/1
   # DELETE /tweets/1.json
