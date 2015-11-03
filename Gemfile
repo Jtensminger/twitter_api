@@ -14,7 +14,10 @@ gem "acts_as_follower"
 gem 'active_model_serializers', '~> 0.8.3'
 
 gem 'rspec-rails'
+
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'doorkeeper'
 
 group :development do
   gem 'pry'
