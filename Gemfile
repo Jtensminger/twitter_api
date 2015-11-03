@@ -12,17 +12,11 @@ gem 'pg'
 gem "acts_as_follower"
 
 gem 'active_model_serializers', '~> 0.8.3'
-# To use ActiveModel has_secure_password
+
+gem 'rspec-rails'
 gem 'bcrypt', '~> 3.1.7'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :development do
+  gem 'pry'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
