@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  has_secure_password
 
   # GET /users
   # GET /users.json
@@ -46,6 +47,10 @@ class UsersController < ApplicationController
     head :no_content
   end
 
+  def self.authenticate!(email, password)
+    user = User.find_by_email(email)
+    user.authenticate(password)
+  end
   private
 
   def set_user
