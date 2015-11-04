@@ -26,16 +26,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    user = User.find_by(email: params[:email])
-    if user && user.password == params[:password]
-      user.generate_token
-      render json: { token: user.auth_token }
-    else
-      render json: { error: 'Incorrect credentials' }, status: :unauthorized
-    end
-  end
-
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
