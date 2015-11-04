@@ -2,7 +2,7 @@ require 'request_helper'
 
 describe "#tokens" do
  it "logs in" do
-   user = User.create(email: "example@example.com", password: "password")
+   user = User.create!(email: "example@example.com", password: "password")
    payload = {
      grant_type: "password",
      username: user.email,
