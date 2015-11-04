@@ -13,7 +13,7 @@ gem 'puma'
 
 gem "acts_as_follower"
 
-gem 'active_model_serializers', '~> 0.8.3'
+gem 'active_model_serializers', '~> 0.10.0.rc3'
 
 gem 'rspec-rails'
 
