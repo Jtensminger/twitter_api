@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 gem 'rails', '4.2.4'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
+gem 'rails_12factor', group: :production
 
 gem 'pg'
+
+gem 'puma'
 
 gem "acts_as_follower"
 
@@ -19,7 +21,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'doorkeeper'
 
-gem 'puma'
 group :development do
   gem 'pry'
   gem 'foreman'
