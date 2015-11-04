@@ -19,7 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'doorkeeper'
 
+gem 'puma'
 group :development do
   gem 'pry'
+  gem 'foreman'
 end
 
