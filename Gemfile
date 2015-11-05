@@ -21,8 +21,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'doorkeeper'
 
-gem "pundit"
+gem 'pundit'
 
+gem 'rack-cors', require: 'rack/cors'
 group :development do
   gem 'pry'
   gem 'foreman'
@@ -38,6 +39,7 @@ group :test, :development do
   gem 'faker'
   gem 'rspec-rails'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'database_cleaner'
 end
 
 
