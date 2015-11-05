@@ -3,13 +3,20 @@ require 'rails_helper'
 RSpec.describe "Tweets" do
 
   describe "#index" do
+    let(:tweet) { FactoryGirl.create :tweet }
     it "show all tweets" do
-      FactoryGirl.create_list(:comment, 2, post: entry)
-      FactoryGirl.create(:comment, post_id: 0)
-
-      get post_comments_path(entry)
+      get tweets_path, tweet
       expect(response).to have_http_status(:success)
-      expect(json["data"].count).to eq 2
+      expect(json.count).to eq 1
+    end
+  end
+  describe "#show" do
+    let(:tweet) { FactoryGirl.create :tweet }
+    it "show a tweet" do
+      get tweets_path, tweet
+      expect(response).to have_http_status(:success)
+      binding.pry
+      expect(json[0]["body"]).to eq tweet["body"]
     end
   end
 end
