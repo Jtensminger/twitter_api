@@ -1,31 +1,54 @@
 require 'request_helper'
+require 'pry'
+
 RSpec.describe "Users" do
-  describe '#create' do
+
+
+  describe "#create" do
     it "creates user" do
       payload = {
-        "user": {
-         "email": "examplexoxo@gmail.com",
-          "password": "password"
+        user: {
+          email: "faker@fake.com",
+          password: "password"
         }
       }
       post users_path, payload
       expect(response).to have_http_status(:created)
     end
 
-
-
-    describe '#show' do
-      it "show user" do
-        payload = {
-            "username": "example123@gmail.com",
-            "password": "password"
+    it "requires email" do
+      payload = {
+        user: {
+          email: "",
+          password: "dowhatnow"
         }
-        user = User.create(payload)
-        get user_path(user)
-        binding.pry
-        expect(response).to have_http_status(:success)
-        expect(json["username"]).to eq payload["username"]
-      end
+      }
+      post users_path, payload
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(json["email"]).to_not be_empty
     end
   end
+
+
+  describe "#index" do
+    let(:user1) { FactoryGirl.create :user }
+    it "shows multiple users" do
+      user1
+      get users_path
+      expect(response).to have_http_status(:success)
+      expect(json.count).to eq 1
+    end
+  end
+
+  describe "#show" do
+    let(:user1) { FactoryGirl.create :user }
+    it "shows a user" do
+      get users_path, user1
+      expect(response).to have_http_status(:success)
+      expect(json[0]["username"]).to eq user1["username"]
+    end
+  end
+
+
+
 end

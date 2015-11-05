@@ -6,6 +6,16 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def follow
+    user = User.find(params[:user_id])
+    current_user.follow(user)
+  end
+
+  def unfollow
+    user = User.find(params[:user_id])
+    current_user.stop_following(user)
+  end
+
   def show
     render json: @user
   end
@@ -35,8 +45,8 @@ class UsersController < ApplicationController
   end
 
   #def self.authenticate!(email, password)
-   # user = User.find_by_email(email)
-    #user.authenticate(password)
+  # user = User.find_by_email(email)
+  #user.authenticate(password)
   #end
   private
 

@@ -1,29 +1,15 @@
-require 'request_helper'
+require 'rails_helper'
 
 RSpec.describe "Tweets" do
-  let(:payload) {{
-    "user": {
-      "email": "Joe@ensminger",
-      "password": "password"
-    }
-  }}
-  let(:login) {{
-    "grant_type": "password",
-    "username": "user100@example.com",
-    "password": "password"
-  }}
-  let(:tweet) {{
-    "body": "This is in my test suite"
-  }}
+
   describe "#index" do
-    it "lists all tweets on page" do
-      User.create(payload)
-      post oauth_token_path, login
+    it "show all tweets" do
+      FactoryGirl.create_list(:comment, 2, post: entry)
+      FactoryGirl.create(:comment, post_id: 0)
+
+      get post_comments_path(entry)
       expect(response).to have_http_status(:success)
-      expect(json["access_token"]).to_not be_empty
-      post tweets_path, tweet
-      expect(response).to have_http_status(:created)
+      expect(json["data"].count).to eq 2
     end
   end
 end
-
