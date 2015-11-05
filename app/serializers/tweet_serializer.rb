@@ -1,3 +1,4 @@
 class TweetSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :body, :created_at
+  belongs_to :user
 end
