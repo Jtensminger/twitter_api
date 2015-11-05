@@ -48,7 +48,4 @@ RSpec.describe "Users" do
       expect(json[0]["username"]).to eq user1["username"]
     end
   end
-
-
-
 end
