@@ -8,6 +8,7 @@ For this Twitter API, a user will be able to be created with the payload of an e
 
 URL:
 POST--https://twittertiy.herokuapp.com/users
+GET--https://twittertiy.herokuapp.com/users
 Sign Up A User:
 Each of the things needed (aka payload) in order for a user to sign up is an email and password.Here is an example of what the json looks like that will be used:
 
@@ -37,7 +38,8 @@ Here is an example of the json of logging in:
 
 
 URL:
-POST -- https://twittertiy.herokuapp.com/tweets
+POST-- https://twittertiy.herokuapp.com/tweets
+GET-- https://twittertiy.herokuapp.com/tweets
 A token will be generated and needed to be put into the header of the tweets url.
 Using this token, the user will be able to create a tweet with the payload of a body. Here is an example of the json:
 
