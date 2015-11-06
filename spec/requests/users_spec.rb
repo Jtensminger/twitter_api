@@ -52,7 +52,7 @@ RSpec.describe "Users" do
     let(:token) { FactoryGirl.create :access_token}
     let(:user) { FactoryGirl.create :user }
     it "allows another user to follow" do
-      put  user_follower_path, user, token
+      put  user_follow_path(user.id), {}, {'authorization' => "Bearer #{token.token}"}
       expect(response).to have_http_status(:success)
     end
   end
