@@ -40,7 +40,7 @@ Here is an example of the json of logging in:
 
 ## Tweets
 URL:
-POST-- https://twittertiy.herokuapp.com/tweets
+POST-- https://twittertiy.herokuapp.com/tweets  
 GET-- https://twittertiy.herokuapp.com/tweets
 
 A token will be generated and needed to be put into the header of the tweets url.
@@ -57,8 +57,8 @@ Using this token, the user will be able to create a tweet with the payload of a 
 
 ## Follow & Unfollow
 URL:
-PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/follow
-PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/unfollow
+PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/follow  
+PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/unfollow  
 example https://twittertiy.herokuapp.com/users/1/unfollow
 
 Ping the follow or unfollow URL with a PUT HTTP request to follow and unfollow the user. There is no payload to send.
