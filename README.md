@@ -5,7 +5,7 @@
 Twitter API
 ===========
 For this Twitter API, a user will be able to be created with the payload of an email and password, then will be able to login which will generate a token used to authenticate the user in order to create tweets. For each of these actions, a POST will need to be used.
-
+##  Users
 URL:
 POST--https://twittertiy.herokuapp.com/users  
 GET--https://twittertiy.herokuapp.com/users
@@ -22,7 +22,7 @@ Each of the things needed (aka payload) in order for a user to sign up is an ema
 }
 ```
 
-
+## Auth
 URL:
 POST-- https://twittertiy.herokuapp.com/oauth/token
 
@@ -38,9 +38,9 @@ Here is an example of the json of logging in:
 
 ```
 
-
+## Tweets
 URL:
-POST-- https://twittertiy.herokuapp.com/tweets  
+POST-- https://twittertiy.herokuapp.com/tweets
 GET-- https://twittertiy.herokuapp.com/tweets
 
 A token will be generated and needed to be put into the header of the tweets url.
@@ -54,4 +54,13 @@ Using this token, the user will be able to create a tweet with the payload of a 
 }
 
 ```
+
+## Follow & Unfollow
+URL:
+PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/follow
+PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/unfollow
+example https://twittertiy.herokuapp.com/users/1/unfollow
+
+Ping the follow or unfollow URL with a PUT HTTP request to follow and unfollow the user. There is no payload to send.
+
 
