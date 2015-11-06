@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   before_action :set_tweet, only: [:show, :update, :destroy]
-
   def index
     tweets = Tweet.all
     render json: tweets

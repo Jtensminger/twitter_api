@@ -23,7 +23,10 @@ gem 'doorkeeper'
 
 gem 'pundit'
 
+gem 'kaminari'
+
 gem 'rack-cors', require: 'rack/cors'
+
 group :development do
   gem 'pry'
   gem 'foreman'

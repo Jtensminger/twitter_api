@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.all
-    render json: @users
+    if params[:q]
+      users = User.where("email ILIKE ?", "%#{params[:q]}%")
+    else
+      users = User
+    end
+    render json: users.page(params[:page]).per(params[:size])
   end
 
   def follow
