@@ -49,10 +49,11 @@ RSpec.describe "Users" do
     end
   end
   describe "#follow" do
-    let(:user1) { FactoryGirl.create :user }
-    let(:user2) { FactoryGirl.create :user }
+    let(:token) { FactoryGirl.create :access_token}
+    let(:user) { FactoryGirl.create :user }
     it "allows another user to follow" do
-      put user_follow_path, user1
+      put  user_follower_path, user, token
+      expect(response).to have_http_status(:success)
     end
   end
 end

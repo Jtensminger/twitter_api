@@ -27,10 +27,10 @@ RSpec.describe "Tweets" do
     let(:tweet)   { FactoryGirl.attributes_for(:tweet)}
     it "creates a tweet" do
       token = FactoryGirl.create(:access_token)
-      binding.pry
       post tweets_path, {tweet: tweet}, { 'authorization' => "Bearer #{token.token}"}
+      binding.pry
       expect(response).to have_http_status(:created)
-      expect(json["body"]).to eq tweet["body"]
+      expect(json["body"]).to eq(tweet[:body])
     end
   end
 end
