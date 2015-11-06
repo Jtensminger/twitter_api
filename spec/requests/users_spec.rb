@@ -56,4 +56,13 @@ RSpec.describe "Users" do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "#unfollow" do
+    let(:token) { FactoryGirl.create :access_token}
+    let(:user) { FactoryGirl.create :user }
+    it "allows another user to follow" do
+      put  user_unfollow_path(user.id), {}, {'authorization' => "Bearer #{token.token}"}
+      expect(response).to have_http_status(:success)
+    end
+  end
 end
