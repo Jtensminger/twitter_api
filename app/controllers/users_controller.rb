@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     else
       users = User
     end
-    render json: users.page(params[:page]).per(params[:size])
+    users = users.page(params[:page]).per(params[:size])
+    render json: users, include: params[:include]
   end
 
   def follow
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user
+    render json: @user, include: params[:include]
   end
 
   def create
