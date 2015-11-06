@@ -48,4 +48,11 @@ RSpec.describe "Users" do
       expect(json[0]["username"]).to eq user1["username"]
     end
   end
+  describe "#follow" do
+    let(:user1) { FactoryGirl.create :user }
+    let(:user2) { FactoryGirl.create :user }
+    it "allows another user to follow" do
+      put user_follow_path, user1
+    end
+  end
 end
