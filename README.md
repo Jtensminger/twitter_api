@@ -42,6 +42,8 @@ Here is an example of the json of logging in:
 URL:
 POST-- https://twittertiy.herokuapp.com/tweets  
 GET-- https://twittertiy.herokuapp.com/tweets
+Include a Authorization header with the word Bearer and a Token
+Ex: Authorization Bearer e19cf968d21e3f825e9d4de6769fc2a8f2911cd13179f0279845d99fc129e49d
 
 A token will be generated and needed to be put into the header of the tweets url.
 Using this token, the user will be able to create a tweet with the payload of a body. Here is an example of the json:
@@ -60,6 +62,10 @@ URL:
 PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/follow  
 PUT-- https://twittertiy.herokuapp.com/users/{input_user_id}/unfollow  
 example https://twittertiy.herokuapp.com/users/1/unfollow
+
+Include a Authorization header with the word Bearer and a Token
+Ex: Authorization Bearer e19cf968d21e3f825e9d4de6769fc2a8f2911cd13179f0279845d99fc129e49d
+
 
 Ping the follow or unfollow URL with a PUT HTTP request to follow and unfollow the user. There is no payload to send.
 
