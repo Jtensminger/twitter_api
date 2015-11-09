@@ -3,8 +3,6 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.4'
 
-gem 'rails-api'
-
 gem 'rails_12factor', group: :production
 
 gem 'pg'
@@ -19,6 +17,14 @@ gem 'rspec-rails'
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'material_icons'
+
+gem 'materialize-sass'
+
+gem 'jquery-rails'
+
+gem 'sass-rails', '~> 5.0'
+
 gem 'doorkeeper'
 
 gem 'pundit'
@@ -26,6 +32,8 @@ gem 'pundit'
 gem 'kaminari'
 
 gem 'rack-cors', require: 'rack/cors'
+
+gem "slim-rails"
 
 group :development do
   gem 'pry'

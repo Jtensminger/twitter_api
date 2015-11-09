@@ -1,0 +1,6 @@
+- tweets.each do |tweet|
+  h5
+    = link_to tweet.user.email, tweet.user
+  h3
+    = tweet.body
+  hr

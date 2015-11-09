@@ -8,7 +8,10 @@ class UsersController < ApplicationController
       users = User
     end
     users = users.page(params[:page]).per(params[:size])
-    render json: users, include: params[:include]
+    respond_to do |format|
+      format.html {render locals: { users:users } }
+      format.json {render json: users, include: params(:include) }
+    end
   end
 
   def follow
@@ -22,7 +25,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @user, include: params[:include]
+    user = User.find(params[:id])
+    respond_to do |format|
+      format.html {render locals: { user:user } }
+      format.json {render json: @user, include: params[:include] }
+    end
   end
 
   def create

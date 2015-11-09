@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::API
-  include ActionController::HttpAuthentication::Basic::ControllerMethods
+class ApplicationController < ActionController::Base
+ include ActionController::HttpAuthentication::Basic::ControllerMethods
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
 
