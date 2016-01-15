@@ -5,12 +5,12 @@ class UsersController < ApplicationController
     if params[:q]
       users = User.where("email ILIKE ?", "%#{params[:q]}%")
     else
-      users = User
+      users = User.all
     end
     users = users.page(params[:page]).per(params[:size])
     respond_to do |format|
       format.html {render locals: { users:users } }
-      format.json {render json: users, include: params(:include) }
+      format.json {render json: users }
     end
   end
 
