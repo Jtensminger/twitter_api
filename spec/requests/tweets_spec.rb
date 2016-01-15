@@ -8,7 +8,7 @@ RSpec.describe "Tweets" do
     it "shows all tweets" do
       tweet
       tweet2
-      get tweets_path
+      get tweets_path, format: :json
       expect(response).to have_http_status(:success)
       expect(json.count).to eq 2
     end
@@ -17,9 +17,10 @@ RSpec.describe "Tweets" do
   describe "#show" do
     let(:tweet) { FactoryGirl.create :tweet }
     it "show a tweet" do
-      get tweets_path, tweet
+      tweet
+      get tweet_path(tweet), format: :json
       expect(response).to have_http_status(:success)
-      expect(json[0]["body"]).to eq tweet["body"]
+      expect(json["body"]).to eq tweet["body"]
     end
   end
 

@@ -6,20 +6,20 @@ class TweetsController < ApplicationController
     if params[:q]
       tweets = Tweet.where("email ILIKE ?", "%#{params[:q]}%")
     else
-      tweets = Tweet
+      tweets = Tweet.all
     end
     tweets = tweets.page(params[:page]).per(params[:size])
     respond_to do |format|
       format.html { render locals: { tweets: tweets } }
-      format.json { render json: @tweet, include: params(:include) }
+      format.json { render json: tweets}
     end
   end
 
   def show
-    tweets = Tweet.find(params[:id])
+    tweet = Tweet.find(params[:id])
     respond_to do |format|
-      format.json {render json: @user, include: params[:include]}
-      format.html {render locals: {tweets: tweets}}
+      format.json {render json: tweet, include: params[:include]}
+      format.html {render locals: {tweets: tweet}}
     end
   end
 
